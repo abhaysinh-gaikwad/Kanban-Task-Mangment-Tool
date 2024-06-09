@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.cont{
+    /* min-height: 100vh; */
+    display: flex;
+    position: relative;
+}
+
+.sidebar{
+    flex:0.2;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.sidebar>h1{
+    margin-bottom: 30px;
+    padding: 30px 0px 0px 30px;
+}
+
+
+.main{
+    flex: 0.8;
+    min-height: 100vh;
+}
+
+.sidenav{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidenav>h4{
+    padding: 30px 0px 0px 10px;
+}
+.board{
+    display: flex;
+    justify-content: space-between;
+}
+.boardContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 80%;
+}
+
+.boardContainer>div{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.boardContainer>div:hover{
+    background-color: darkslateblue;
+    color: white;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.selected{
+    background-color:darkslateblue;
+    color: white;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.createBoardBtn{
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+.createBoardBtn:hover{
+    background-color: darkslateblue;
+    color: white;
+    cursor: pointer;
+}
+
+.aboutBoard{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;  
+    
+}
+
+.aboutBoard>button{
+    padding: 10px 30px;
+    border-radius: 30px;
+    border: none;
+    background-color: darkslateblue;
+    color: white;
+    cursor: pointer;
+}
+
+.task{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 20px 20px;
+    background-color:lavender;
+    min-height: 84%;
+    text-align: center;
+    gap: 20px;
+}
+
+.todo>h3, .doing>h3, .done>h3{
+    margin-bottom: 20px;
+}
+
+.todoItem, .doItem, .doneItem{
+    padding: 20px;
+    background-color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    position: relative;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+
+
+.todoContainer, .doingContainer, .doneContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hid{
+    visibility: hidden;
+}
+
+.createboard,.createtask,.viewtask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    bottom:0;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+}
+
+.dialog{
+    width: 500px;
+    background-color: white;
+    border-radius: 30px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 20px;
+}
+
+.dialog>h3{
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    position:absolute;
+    right: 10%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form>input{
+    padding: 20px;
+}
+
+.form>button{
+    padding: 20px;
+    color: white;
+    background-color: darkslateblue;
+    cursor: pointer;
+}
+
+.delete_task_btn{
+    position: absolute;
+    top: 35px;
+    right: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}

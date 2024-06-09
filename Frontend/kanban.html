@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        if(!localStorage.getItem("token")){
+            window.location.href = "index.html";
+        }
+    </script>
+    <link rel="stylesheet" href="kanban.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="cont">
+        <div class="sidebar">
+            <h1>Kanban</h1>
+            <div class="sidenav">
+                <h4>ALL BOARDS</h4>
+                <div id="boardContainer" class="boardContainer">
+                    <!-- <div class="selected">
+                        Board1
+                    </div>
+                    <div>
+                        Board2
+                    </div>
+                    <div>
+                        Board3
+                    </div>
+                    <div>
+                        Board4
+                    </div> -->
+                </div>
+                <button id="createBoardBtn" class="createBoardBtn">+ Create New Board</button>
+            </div>
+        </div>
+        <div class="main">
+            <div class="aboutBoard">
+                <h2 id="boardName"></h2>
+                <button id="createTaskBtn">+ Add a Task</button>
+
+            </div>
+            <div class="task">
+                <div class="todo">
+                    <h3>Todo</h3>
+                    <div class="todoContainer">
+                        <!-- <div class="todoItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="todoItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="todoItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="todoItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="todoItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="doing">
+                    <h3>Doing</h3>
+                    <div class="doingContainer">
+                        <!-- <div class="doItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="doItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="doItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="doItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="doItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="done">
+                    <h3>Done</h3>
+                    <div class="doneContainer">
+                        <!-- <div class="doneItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="doneItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="doneItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="doneItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div>
+                        <div class="doneItem">
+                            <h3>Do something</h3>
+                            <div>List of sub-task</div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="createboard" class="createboard hid">
+            <div class="dialog">
+                <h3 id="closeBoard">X</h3>
+                <h1>Enter the Board Details</h1>
+                <div class="form">
+                    <input type="text" id="boardNameInput" placeholder="Enter the boardname">
+                    <button id="createBoardInputBtn">Submit</button>
+                </div>
+            </div>
+        </div>
+        <!-- <div id="createtask" class="createtask hid">
+            <div class="dialog">
+                <h3 id="closeTask">X</h3>
+                <h1>Add New Task</h1>
+                <div class="form" >
+                    <div>Task Name</div>
+                    <input type="text" id="taskNameInput" placeholder="Enter the task name">
+                    <div>Description</div>
+                    <textarea rows="4" id="taskDescriptionInput" placeholder="Enter the Description"></textarea>
+                    <div>Status</div>
+                    <select name="status" id="statusSelect">
+                        <option value="Todo">Todo</option>
+                        <option value="Doing">Doing</option>
+                        <option value="Done">Done</option>
+                    </select>
+                    <button id="createTaskBtnsubmit">Submit</button>
+                </div>
+            </div>
+        </div> -->
+        
+        <div id="createtask" class="createtask hid">
+            <div class="dialog">
+                <h3 id="closeTask">X</h3>
+                <h1>Add New Task</h1>
+                <div class="form" >
+                    <div>Task Name</div>
+                    <input type="text" id="taskNameInput"  placeholder="Enter the task name">
+                    <div>Description</div>
+                    <textarea id="taskDescriptionInput" placeholder="Enter the Description"></textarea>
+                    <div>Subtask</div>
+                    <div id="subtasklist">
+                        <input type="text" class="subtaskInp" placeholder="Enter the subtask">
+                    </div>
+                    <button id="addsubtaskbtn">+Add new subtask</button>
+                    <div>Status</div>
+                   <select name="select status" id="statusSelect">
+                    <option value="Done">Done</option>
+                    <option value="Doing">Doing</option>
+                    <option value="Todo">Todo</option>
+                   </select>
+                    <button id="createTaskBtnsubmit">Submit</button>
+                </div>
+               </div>
+        </div>
+
+        <div id="viewtask" class="viewtask hid">
+            <div class="dialog">
+                <h3 id="closeViewSubtask">X</h3>
+                <h1 id="viewTaskHeading"></h1>
+                <div class="form" id="viewTaskForm">
+                    <div id="subtasklistview">
+                        <!-- <div>
+                            <input type="checkbox" placeholder="task 1" value="task1" id="subtask1">
+                            <label for="subtask1">task</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" placeholder="task 1" value="task1" id="subtask1">
+                            <label for="subtask1">task</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" placeholder="task 1" value="task1" id="subtask1">
+                            <label for="subtask1">task</label>
+                        </div> -->
+                    </div>
+                    <h3>Status</h3>
+                    <select name="select status" id="statusSelectView">
+                        <option value="Done">Done</option>
+                        <option value="Doing">Doing</option>
+                        <option value="Todo">Todo</option>
+                    </select>
+                    <button id="updatesubTaskBtnUVSing">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+    <script src="kanban.js"></script>
+</body>
+
+</html>
